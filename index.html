@@ -133,13 +133,6 @@
       display: block;
     }
 
-    /* PC-only crop correction for the title/address image card */
-    @media (min-width: 701px) {
-      .hero-photo img {
-        object-position: 57% 50%;
-      }
-    }
-
     /* ── UNIT CARDS — now above stats ── */
     .units-section { background: white; padding: 52px 5%; }
     .section-header { text-align: center; margin-bottom: 34px; }
@@ -357,6 +350,40 @@
       .nav-links a:not(.btn-nav) { display: none; }
       .stat-item { padding: 13px 14px; }
     }
+  
+
+    /* ── FINAL CORRECTIONS: hero image crop + centered bottom unit cards ── */
+    @media (min-width: 701px) {
+      .hero-photo img {
+        height: auto !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+      }
+    }
+
+    .units-grid {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      align-items: stretch !important;
+      gap: 14px !important;
+      max-width: 1088px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .units-grid .unit-card {
+      flex: 0 0 200px !important;
+      max-width: 200px !important;
+    }
+
+    @media (max-width: 700px) {
+      .units-grid .unit-card {
+        flex: 1 1 220px !important;
+        max-width: 100% !important;
+      }
+    }
+
   </style>
 </head>
 <body>
